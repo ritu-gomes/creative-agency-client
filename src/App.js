@@ -32,7 +32,6 @@ function App() {
   return (
     <userContext.Provider value={[user,setUser]}>
       <idContext.Provider value={[serviceId,setServiceId]}>
-        <h2>name:{user.name}</h2>
         <Router>
           <Switch>
             <Route path="/home">
@@ -41,24 +40,24 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
-            <Route path="/servicelist">
+            <PrivateRouter path="/servicelist">
               <Dashboard></Dashboard>
-            </Route>
+            </PrivateRouter>
             <PrivateRouter path="/order">
               <Order></Order>
             </PrivateRouter>
-            <Route path="/review">
+            <PrivateRouter path="/review">
               <Review></Review>
-            </Route>
+            </PrivateRouter>
             <PrivateRouter path="/makeadmin">
               <MakeAdmin></MakeAdmin>
             </PrivateRouter>
             <PrivateRouter path="/allorder">
               <AllOrder></AllOrder>
             </PrivateRouter>
-            <Route path="/addservice">
+            <PrivateRouter path="/addservice">
               <AddService></AddService>
-            </Route>
+            </PrivateRouter>
             <Route exact path="/">
               <Home></Home>
             </Route>
